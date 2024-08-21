@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A disfrutar</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        video {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <video id="miVideo" autoplay muted>
+        <source src="c:\Users\Claudia Parisi\Desktop\FMÇ\MIRYANYFERmini.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de videos.
+    </video>
+
+    <script>
+        const video = document.getElementById('miVideo');
+
+        // Eliminar controles nativos del video
+        video.controls = false;
+
+        // Evitar pausa del video
+        video.addEventListener('pause', () => {
+            video.play();
+        });
+
+        // Evitar adelanto o retroceso del video
+        video.addEventListener('seeking', (e) => {
+            video.currentTime = e.target.currentTime;
+        });
+
+        // Forzar la reproducción automática con sonido
+        window.addEventListener('load', () => {
+            video.controls=Audio
+            video.play().catch(error => {
+                console.log('Reproducción automática bloqueada. Intentando reproducir manualmente.', error);
+            video.play();
+            });
+        });
+    </script>
+</body>
+</html>
